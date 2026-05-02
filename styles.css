@@ -1,11 +1,3 @@
-/* CSS by ///ADD/// YOUR NAME */
-
-/* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-
-/* ///ADD/// CSS Reset */
-
-
 /* Root Variables */
 :root {
   --blue-bulletin: #1D3557;
@@ -14,8 +6,8 @@
   --truth-text: #333;
   --story-subtitle: #457B9D;
   --font-body: "Source Sans 3", sans-serif;
-  --font-heading: 'Merriweather', serif;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --font-heading: "Merriweather", serif;
+  --shadow: 4px 4px 6px rgba(0, 0, 0, 0.45);
   --transition: all 0.5s ease;
 }
 
@@ -24,10 +16,12 @@ body.light-mode {
   background-color: var(--watchdog-white);
   color: var(--truth-text);
 }
+
 body.dark-mode {
   background-color: var(--truth-text);
   color: var(--watchdog-white);
 }
+
 #theme-toggle {
   position: absolute;
   top: 1rem;
@@ -39,27 +33,491 @@ body.dark-mode {
 }
 
 /* ///ADD/// Skip Link Styles */
+#skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  display: block;
+  padding: 1rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  font-weight: bold;
+  text-align: center;
+}
 
 /* ///ADD/// Navigation Styles */
+.mobile-nav {
+  margin-top: 1rem;
+}
+
+.menu-button {
+  display: block;
+  width: fit-content;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  font-family: var(--font-body);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+#menu-toggle:checked + .menu-button + .menu {
+  display: block;
+}
+
+.menu li {
+  margin: 0.5rem 0;
+}
+
+.menu a {
+  display: block;
+  width: fit-content;
+  padding: 0.8rem 0.9rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
 
 /* ///ADD/// Global Layout Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+header {
+  position: relative;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 1.5rem 1rem 2rem;
+}
+
+header > h1,
+header > p,
+header > nav {
+  width: calc(100% - 2rem);
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  width: calc(100% - 2rem);
+  max-width: 980px;
+  margin: 3rem auto 2rem auto;
+  padding: 0;
+}
+
+section {
+  margin: 2rem 0;
+}
+
+article {
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+  border: 1px solid var(--truth-text);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+video {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#breaking-news {
+  display: grid;
+  gap: 1.5rem;
+}
+
+#breaking-news article {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+}
+
+#breaking-news h2 {
+  margin-bottom: 0;
+}
+
+#breaking-news h3 {
+  color: var(--watchdog-white);
+  border-bottom: 1px solid var(--watchdog-white);
+  padding-bottom: 0.5rem;
+}
+
+#featured-articles {
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+#featured-articles h2 {
+  grid-column: 1 / -1;
+}
+
+#featured-articles article h3 {
+  border-bottom: 1px solid var(--truth-text);
+  padding-bottom: 0.5rem;
+}
+
+#alerts {
+  max-width: 980px;
+  margin: 2rem auto;
+}
+
+#alerts h2 {
+  text-align: left;
+  margin-bottom: 0.25rem;
+}
+
+#alerts p {
+  margin-top: 0;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 980px;
+  margin: 1rem auto;
+  padding: 1.25rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  border: 1px solid var(--truth-text);
+  box-shadow: var(--shadow);
+}
+
+form div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  border: 1px solid var(--truth-text);
+  padding: 1rem;
+}
+
+fieldset div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+legend,
+label {
+  font-weight: bold;
+}
+
+fieldset legend {
+  text-transform: uppercase;
+}
+
+fieldset label {
+  font-weight: normal;
+  text-align: left;
+}
+
+fieldset input[type="checkbox"] {
+  justify-self: start;
+  margin: 0;
+}
+
+.required {
+  color: var(--watchdog-white);
+  font-weight: bold;
+}
+
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  font-family: var(--font-body);
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  font-family: var(--font-body);
+  font-weight: normal;
+  text-transform: uppercase;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2rem 1rem;
+}
+
+footer section,
+footer p {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer h2 {
+  color: var(--watchdog-white);
+  text-align: left;
+}
+
+#social ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#social a {
+  display: block;
+  padding: 0.75rem 1rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+footer p {
+  text-align: center;
+  max-width: none;
+}
 
 /* ///ADD/// Global Text Styles */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
 
+h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin: 1.5rem 0 1rem;
+  color: var(--truth-text);
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+  color: var(--truth-text);
+}
+
+p {
+  max-width: 100%;
+  margin: 0.5rem 0;
+}
+
+header .tagline {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+blockquote {
+  max-width: 65ch;
+  margin: 1.5rem auto;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  text-align: center;
+}
 
 /* ///ADD/// medium styles 620px */
+@media screen and (min-width: 620px) {
+  .menu-button {
+    display: none;
+  }
 
+  .menu {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .menu li {
+    margin: 0;
+  }
+
+  #breaking-news {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #breaking-news h2 {
+    grid-column: 1 / -1;
+  }
+
+  #featured-articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #featured-articles h2 {
+    grid-column: 1 / -1;
+  }
+
+  form {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 0.25rem;
+  }
+
+  fieldset,
+  input[type="submit"] {
+    grid-column: 1 / -1;
+  }
+
+  fieldset {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /* ///ADD/// large styles 920px */
+@media screen and (min-width: 920px) {
+  #featured-articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
+  #featured-articles h2 {
+    grid-column: 1 / -1;
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
+@media screen and (min-width: 1024px) {
+  main,
+  header > h1,
+  header > p,
+  header > nav,
+  footer section {
+    max-width: 980px;
+  }
 
+  #featured-articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode) {
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
+}
 
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  body:not(.light-mode) main article {
+    background-color: var(--blue-bulletin);
+    color: var(--watchdog-white);
+  }
+
+  body:not(.light-mode) h2,
+  body:not(.light-mode) h3 {
+    color: var(--watchdog-white);
+  }
+
+  body:not(.light-mode) #breaking-news article,
+  body:not(.light-mode) form {
+    background-color: var(--news-flash);
+  }
+
+  body:not(.light-mode) input[type="submit"] {
+    background-color: var(--blue-bulletin);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+    animation: none;
+    scroll-behavior: auto;
+  }
+}
+
+@media (hover: hover) {
+  .menu a:hover,
+  #social a:hover {
+    background-color: var(--blue-bulletin);
+    transition: var(--transition);
+  }
+
+  input[type="submit"]:hover {
+    background-color: var(--truth-text);
+    transition: var(--transition);
+  }
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
+  .mobile-nav:has(#menu-toggle:checked) .menu {
+    display: block;
+  }
 
+  .mobile-nav:has(#menu-toggle:checked) .menu-button {
+    background-color: var(--blue-bulletin);
+  }
+
+  @media screen and (min-width: 620px) {
+    .mobile-nav:has(#menu-toggle) .menu {
+      display: flex;
+    }
+  }
 }
